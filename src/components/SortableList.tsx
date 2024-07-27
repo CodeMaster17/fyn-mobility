@@ -2,7 +2,7 @@ import React from 'react';
 import { DndProvider } from 'react-dnd';
 import { HTML5Backend } from 'react-dnd-html5-backend';
 import SortableItem from './SortableItem';
-import { useAppContext } from '../hooks/ContextProvider';
+import { useAppContext } from '../lib/ContextProvider';
 
 const SortableList: React.FC = () => {
     const { items, moveItem } = useAppContext()

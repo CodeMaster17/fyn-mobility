@@ -1,5 +1,5 @@
 import React from 'react';
-import { useAppContext } from '../hooks/ContextProvider';
+import { useAppContext } from '../lib/ContextProvider';
 import { Item } from '../constants';
 
 const Input: React.FC = () => {
