@@ -6,8 +6,61 @@
   box-sizing: border-box;
   font-family: "Poppins", sans-serif;
   font-style: normal;
+  font-size: 10px;
 }
 
 body {
   width: 100vw;
+}
+
+.heading {
+  font-weight: 400;
+  font-size: 20px;
+}
+
+
+.center-col {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.center-row {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.input-container {
+  display: flex;
+  gap: 1rem;
+}
+
+.input {
+  width: 400px;
+  height: 4rem;
+  border-radius: 5px;
+  font-size: 2rem;
+}
+
+.input::placeholder {
+  font-size: 2rem;
+}
+
+.button {
+  width: 100px;
+  height: 4rem;
+  border-radius: 5px;
+  font-size: 2rem;
+}
+
+.main {
+  border: 2px solid red;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
