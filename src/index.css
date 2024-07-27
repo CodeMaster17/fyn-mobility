@@ -7,6 +7,10 @@
   font-family: "Poppins", sans-serif;
   font-style: normal;
   font-size: 10px;
+  --button-color: #36C2CE;
+  --black: black;
+  --error-message: red;
+  --box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 }
 
 body {
@@ -32,13 +36,13 @@ body {
 
 .add-button {
   height: 5rem;
-  background-color: #36C2CE;
+  background-color: var(--button-color);
   cursor: pointer;
 }
 
 .drag-text {
   width: 90%;
-  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  box-shadow: var(--box-shadow);
   border-radius: 0.5rem;
   padding: 0.5%;
 }
@@ -53,7 +57,7 @@ body {
 }
 
 .grip-icon:hover {
-  color: black;
+  color: var(--black);
 }
 
 .center-col {
@@ -79,7 +83,7 @@ body {
 
 .error-message {
   text-align: left;
-  color: red;
+  color: var(--error-message);
   font-size: 1.2rem;
 }
 
@@ -123,12 +127,12 @@ body {
   width: 25%;
   height: 50vh;
   padding: 1%;
-  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  box-shadow: var(--box-shadow);
 }
 
 .image-id {
   padding: 4% 4%;
-  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  box-shadow: var(--box-shadow);
   border-radius: 0.5rem;
   font-size: 1.5rem;
 
@@ -136,8 +140,7 @@ body {
 
 .number-container {
   padding: 2% 4%;
-  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
-  /* background: rgb(193, 193, 193); */
+  box-shadow: var(--box-shadow);
   border-radius: 0.5rem;
 }
 
