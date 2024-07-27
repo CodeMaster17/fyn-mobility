@@ -12,6 +12,9 @@ function App() {
       <p className='heading'>Task 1</p>
       <Input />
       <SortableList />
+      <br />
+      <br />
+      <br />
       <p className='heading'>Task 2</p>
       <ImageGallery />
     </main>
