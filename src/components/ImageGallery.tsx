@@ -1,4 +1,5 @@
 import React, { useEffect, useState, useRef } from 'react';
+import { IMAGE_API } from '../constants';
 
 // Defining the type for the image data
 interface ImageData {
@@ -19,7 +20,7 @@ const ImageGallery: React.FC = () => {
     const fetchImages = async () => {
         setLoading(true);
         try {
-            const response = await fetch(`https://jsonplaceholder.typicode.com/photos?_limit=9&_page=${page}`);
+            const response = await fetch(`${IMAGE_API}${page}`);
             const data = await response.json();
             setImages((prevImages) => [...prevImages, ...data]);
         } catch (error) {

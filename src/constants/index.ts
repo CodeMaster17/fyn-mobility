@@ -9,3 +9,6 @@ export const initialItems: Item[] = [
   { id: 3, text: "Item 3" },
   { id: 4, text: "Item 4" },
 ];
+
+export const IMAGE_API =
+  "https://jsonplaceholder.typicode.com/photos?_limit=9&_page=";
