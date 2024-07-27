@@ -1,50 +1,88 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState, useRef } from 'react';
 
-// Define the type for the image data
+// Defining the type for the image data
 interface ImageData {
-    albumId: number;
     id: number;
-    title: string;
     url: string;
     thumbnailUrl: string;
+    title: string;
 }
 
-type Props = {};
+const ImageGallery: React.FC = () => {
+    const [images, setImages] = useState<ImageData[]>([]);
+    const [page, setPage] = useState<number>(1);
+    const [loading, setLoading] = useState<boolean>(false);
+    const observer = useRef<IntersectionObserver | null>(null);
+    const lastImageRef = useRef<HTMLImageElement | null>(null);
 
-const ImageGallery: React.FC<Props> = (props: Props) => {
-    // Initialize state with the correct type
-    const [apiData, setAPIData] = React.useState<ImageData[]>([]);
-
-    // Fetch data from the API
-    const getData = async () => {
-        const res = await fetch('https://jsonplaceholder.typicode.com/photos?_limit=9&_page=1');
-        const data: ImageData[] = await res.json(); // Type the fetched data
-        setAPIData(data);
-        console.log(data); // Log the fetched data instead of the state
+    // Fetching images from an API
+    const fetchImages = async () => {
+        setLoading(true);
+        try {
+            const response = await fetch(`https://jsonplaceholder.typicode.com/photos?_limit=9&_page=${page}`);
+            const data = await response.json();
+            setImages((prevImages) => [...prevImages, ...data]);
+        } catch (error) {
+            console.error("Error fetching images:", error);
+        } finally {
+            setLoading(false);
+        }
     };
 
+    // Loading more images when the component mounts or page changes
     useEffect(() => {
-        getData();
-    }, []);
+        fetchImages();
+    }, [page]);
+
+    // Intersection Observer for lazy loading
+    useEffect(() => {
+        const observerCallback: IntersectionObserverCallback = (entries) => {
+            if (entries[0].isIntersecting && !loading) {
+                setPage((prevPage) => prevPage + 1);
+            }
+        };
+
+        const options: IntersectionObserverInit = {
+            root: null,
+            rootMargin: '20px',
+            threshold: 1.0,
+        };
+
+        if (lastImageRef.current) {
+            observer.current = new IntersectionObserver(observerCallback, options);
+            observer.current.observe(lastImageRef.current);
+        }
+
+        return () => {
+            if (observer.current && lastImageRef.current) {
+                observer.current.unobserve(lastImageRef.current);
+            }
+        };
+    }, [loading]);
 
     return (
-        <section className="w-full border-red">
+        <>
             <div className="image-container">
-
-                {apiData.length > 0 ? (
-                    apiData.map((item) => (
-                        <div key={item.id} className="image-item">
-                            <div className="w-full border-red image-card">
-                                <img src={item.url} alt={item.title} className="image" />
+                {images.map((image, index) => {
+                    const isLastImage = index === images.length - 1; // Checking if this is the last image
+                    return (
+                        <div key={`${page}-${index}`} className='image-item'>
+                            <div className='image-card'>
+                                <img
+                                    src={image.thumbnailUrl}
+                                    alt={image.title}
+                                    ref={isLastImage ? lastImageRef : null}
+                                    loading="lazy"
+                                    className="image"
+                                />
                             </div>
-                            <h3>{item.title}</h3>
+                            <p className='text'>{image.title}</p>
                         </div>
-                    ))
-                ) : (
-                    <p>No images found.</p>
-                )}
+                    );
+                })}
             </div>
-        </section>
+            {loading && <p>Loading more images...</p>}
+        </>
     );
 };
 
