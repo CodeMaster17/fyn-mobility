@@ -77,7 +77,7 @@ const ImageGallery: React.FC = () => {
                                 <span>
                                     &nbsp;
                                     &nbsp;
-                                    page:&nbsp;
+                                    index:&nbsp;
                                 </span>
                                 <span className='number-container'>
                                     {`${index}`}

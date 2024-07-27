@@ -38,13 +38,17 @@ const SortableItem: React.FC<{ item: Item; index: number; moveItem: (fromIndex: 
     drag(drop(ref));
 
     return (
-        <div ref={ref} style={{ opacity: isDragging ? 0.5 : 1, padding: '8px', margin: '1rem 0', fontSize: '2rem', background: isDragging ? '#36C2CE' : '#FFF', display: 'flex' }}>
-            <div className='drag-button'>
-                <button ref={dragPreview} style={{ marginRight: '8px', cursor: 'move' }}>
-                    <span aria-label="drag-handle"> <GripVertical /> </span>
+        <div ref={ref} style={{ opacity: isDragging ? 0.5 : 1, padding: '8px', margin: '1rem 0', fontSize: '2rem', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+            <div className='drag-button' >
+                <button ref={dragPreview} style={{ marginRight: '', cursor: 'move' }} className='drag-button'>
+                    <span aria-label="drag-handle">
+                        <GripVertical
+                            className='grip-icon'
+                        />
+                    </span>
                 </button>
             </div>
-            <div className='drag-text'>
+            <div className='drag-text' style={{ background: isDragging ? '#36C2CE' : '#FFF' }}>
                 {item.text}
             </div>
         </div>

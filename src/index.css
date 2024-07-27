@@ -30,11 +30,30 @@ body {
   width: 10%;
 }
 
+.add-button {
+  height: 5rem;
+  background-color: #36C2CE;
+  cursor: pointer;
+}
+
 .drag-text {
   width: 90%;
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
   border-radius: 0.5rem;
   padding: 0.5%;
+}
+
+.drag-button {
+  background: transparent;
+  border: none;
+}
+
+.grip-icon {
+  color: gray;
+}
+
+.grip-icon:hover {
+  color: black;
 }
 
 .center-col {
@@ -55,11 +74,18 @@ body {
 .input-container {
   display: flex;
   gap: 1rem;
+  align-items: center;
+}
+
+.error-message {
+  text-align: left;
+  color: red;
+  font-size: 1.2rem;
 }
 
 .input {
   width: 400px;
-  height: 4rem;
+  height: 5rem;
   border-radius: 5px;
   font-size: 2rem;
 }
@@ -70,7 +96,6 @@ body {
 
 .button {
   width: 100px;
-  height: 4rem;
   border-radius: 5px;
   font-size: 2rem;
 }

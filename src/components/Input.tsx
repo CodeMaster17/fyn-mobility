@@ -4,17 +4,24 @@ import { Item } from '../constants';
 
 const Input: React.FC = () => {
     const [value, setValue] = React.useState<string>('');
+    const [err, setErr] = React.useState<string>('')
     const { addItem } = useAppContext();
 
     const handleItem = () => {
-        const newItem: Item = { id: Date.now(), text: value }; // Generate a unique id using Date.now()
+        if (value == "") {
+            setErr('*Input cannot be empty')
+            return;
+        }
+        setErr('')
+        const newItem: Item = { id: Date.now(), text: value };
         addItem(newItem);
-        setValue(''); // Clear the input field after adding the item
+        setValue('');
     };
 
     return (
         <section className='center'>
             <div className='input-container'>
+
                 <input
                     type="text"
                     value={value}
@@ -22,10 +29,12 @@ const Input: React.FC = () => {
                     className='input'
                     onChange={(e) => setValue(e.target.value)}
                 />
-                <button className='button' onClick={handleItem}>
+
+                <button className=' button add-button' onClick={handleItem}>
                     Add +
                 </button>
             </div>
+            <p className='error-message'>{err}</p>
         </section>
     );
 };
