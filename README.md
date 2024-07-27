@@ -20,6 +20,7 @@ platform for EV logistics, financing, manufacturing & more
 - Styling : CSS
 - Bundler : Vite
 - Icons : Lucide Icons
+- Drag and Drop : React drag and drop 
 
 ### 🌠 Screenshots
 <img width="1383" alt="image" src="https://github.com/user-attachments/assets/852e7cab-9be8-419e-8ac6-c8b1024a1eeb">
