@@ -1,30 +1,22 @@
-# React + TypeScript + Vite
+### FYN Mobility Assigment
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+India’s first vertically integrated EV ecosystem
+platform for EV logistics, financing, manufacturing & more
 
-Currently, two official plugins are available:
+### 🔗 Hosted Links
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- Frontend : https://fyn-mobility-assignment.vercel.app/
 
-## Expanding the ESLint configuration
+### 🔑 Key Features
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+- #️⃣ Drag and Drop Functionality
+- 📲 Upadting list in real time with React context API
+- 📱 Infinite scroll with json placeholder api
+- ⚡️ Use of Intersection Observer API for lazy loading.
 
-- Configure the top-level `parserOptions` property like this:
+### ⚡️ Tech Stack
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json', './tsconfig.app.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
-```
-
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+- Frontend : React 18
+- Styling : CSS
+- Bundler : Vite
+- Icons : Lucide Icons
