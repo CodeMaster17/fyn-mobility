@@ -1,7 +1,7 @@
 import React, { useRef } from 'react';
 import { useDrag, useDrop } from 'react-dnd';
 import { Item } from '../constants';
-
+import { GripVertical } from 'lucide-react';
 const ItemType = 'ITEM';
 
 
@@ -38,11 +38,15 @@ const SortableItem: React.FC<{ item: Item; index: number; moveItem: (fromIndex: 
     drag(drop(ref));
 
     return (
-        <div ref={ref} className='item' style={{ opacity: isDragging ? 0.5 : 1, padding: '8px', border: '1px solid #ccc', margin: '4px 0', fontSize: '2rem', background: isDragging ? '#36C2CE' : '#478CCF' }}>
-            <button ref={dragPreview} style={{ marginRight: '8px', cursor: 'move' }}>
-                <span role="img" aria-label="drag-handle"> ≡ </span>
-            </button>
-            {item.text}
+        <div ref={ref} style={{ opacity: isDragging ? 0.5 : 1, padding: '8px', margin: '1rem 0', fontSize: '2rem', background: isDragging ? '#36C2CE' : '#FFF', display: 'flex' }}>
+            <div className='drag-button'>
+                <button ref={dragPreview} style={{ marginRight: '8px', cursor: 'move' }}>
+                    <span aria-label="drag-handle"> <GripVertical /> </span>
+                </button>
+            </div>
+            <div className='drag-text'>
+                {item.text}
+            </div>
         </div>
     );
 };

@@ -26,6 +26,16 @@ body {
   font-size: 20px;
 }
 
+.drag-button {
+  width: 10%;
+}
+
+.drag-text {
+  width: 90%;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  border-radius: 0.5rem;
+  padding: 0.5%;
+}
 
 .center-col {
   width: 100%;
@@ -101,8 +111,9 @@ body {
 
 .number-container {
   padding: 2% 4%;
-  background: rgb(193, 193, 193);
-  border-radius: 0.2rem;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  /* background: rgb(193, 193, 193); */
+  border-radius: 0.5rem;
 }
 
 .image-card {
