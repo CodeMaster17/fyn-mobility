@@ -67,6 +67,23 @@ const ImageGallery: React.FC = () => {
                     const isLastImage = index === images.length - 1; // Checking if this is the last image
                     return (
                         <div key={`${page}-${index}`} className='image-item'>
+                            <div className='image-id'>
+                                <span>
+                                    page:&nbsp;
+                                </span>
+                                <span className='number-container'>
+                                    {`${page}`}
+                                </span>
+                                <span>
+                                    &nbsp;
+                                    &nbsp;
+                                    page:&nbsp;
+                                </span>
+                                <span className='number-container'>
+                                    {`${index}`}
+                                </span>
+                            </div>
+                            <br />
                             <div className='image-card'>
                                 <img
                                     src={image.thumbnailUrl}
